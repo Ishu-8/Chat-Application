@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chattr - Chat</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- Mobile top bar -->
+  <div class="mobile-topbar">
+    <button id="mobile-sidebar-toggle">☰</button>
+    <span class="mobile-title">Chattr</span>
+    <span class="member-count mobile-count"></span>
+  </div>
+
+  <div class="chat-container">
+
+    <!-- Sidebar -->
+    <div class="chat-info" id="sidebar">
+      <div class="user">
+        <img class="rounded-full" src="" alt="avatar">
+        <h3 class="userName"></h3>
+        <div class="online-badge">🟢 You're online</div>
+        <button id="logout">Sign out</button>
+      </div>
+      <div class="member-count">👥 1 member online</div>
+      <div class="members-panel">
+        <div class="members-title">👤 Members</div>
+        <div class="members-list"></div>
+      </div>
+      <div class="notification">
+        <div class="noti">Notifications</div>
+        <div class="user-status"></div>
+      </div>
+    </div>
+
+    <!-- Chat area -->
+    <div class="chat">
+      <div class="chat-element"></div>
+
+      <!-- Emoji Picker (hidden by default) -->
+      <div class="emoji-picker" id="emojiPicker">
+        <div class="emoji-tabs">
+          <button class="emoji-tab active" data-cat="smileys">😊</button>
+          <button class="emoji-tab" data-cat="gestures">👋</button>
+          <button class="emoji-tab" data-cat="hearts">❤️</button>
+          <button class="emoji-tab" data-cat="animals">🐶</button>
+          <button class="emoji-tab" data-cat="food">🍕</button>
+          <button class="emoji-tab" data-cat="activities">⚽</button>
+          <button class="emoji-tab" data-cat="travel">✈️</button>
+          <button class="emoji-tab" data-cat="objects">💡</button>
+          <button class="emoji-tab" data-cat="symbols">🔥</button>
+        </div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+      </div>
+
+      <!-- Input bar -->
+      <div class="chat-input">
+        <button id="emojiBtn" title="Emoji">😊</button>
+        <input id="message" type="text" placeholder="Start typing.....">
+        <button id="send">Send</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="importmap">
+    { "imports": { "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js" } }
+  </script>
+  <script type="module" src="./main.js"></script>
+  <script>
+    document.getElementById('mobile-sidebar-toggle').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('open')
+    })
+  </script>
+</body>
+</html>

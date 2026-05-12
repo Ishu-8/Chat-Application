@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Chattr</title>
+</head>
+<body>
+  <div class="header">
+    <h1>Chattr</h1>
+    <p>Chat with your friends</p>
+  </div>
+  <div class="container">
+    <label>Enter your name to start</label>
+    <input type="text" name="name" id="name" class="input" placeholder="Enter your name">
+    <button id="signin">Sign in to get started</button>
+  </div>
+</body>
+
+<script>
+  // Just save name and redirect — login event is emitted from chat page only
+  document.querySelector('#signin').addEventListener('click', () => {
+    let name = document.querySelector('#name').value.trim()
+    if (name.length !== 0) {
+      localStorage.setItem('user', name)
+      document.location.href = 'chat.html'
+    } else {
+      alert('Please enter your name!')
+    }
+  })
+
+  document.querySelector('#name').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') document.querySelector('#signin').click()
+  })
+</script>
+</html>
