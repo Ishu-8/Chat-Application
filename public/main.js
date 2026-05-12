@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-let socket = io('http://localhost:3000');
+let socket = io('https://chat-application-av19.onrender.com');
 
 let user = localStorage.getItem('user')
 if (!user) { document.location.href = 'index.html' }
